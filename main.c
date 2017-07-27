@@ -11,9 +11,9 @@
 uint64_t rdtsc() {
 	return __rdtsc();
 }
-int main(){
+int main() {
 	FILE *fi = fopen("i.csv", "w"), *fc = fopen("cycle.csv", "w"), *fu = fopen("u.csv", "w");
-	int m = 0, n = 0, p = 0, q = 0, i, j, k, sum = 0, input = 0, count = 1;
+	int m = 0, n = 0, p = 0, q = 0, i, j, k, r, sum = 0, input = 0, count = 1;
 	char ch;
 	static int first[SIZE][SIZE], second[SIZE][SIZE], multiply[SIZE][SIZE];
 	printf("Randomize matrix?(y/n)\n");
@@ -65,10 +65,10 @@ int main(){
 			x0 = __rdtsc();
 			for (k = 0; k < m; k++) {
 				for (j = 0; j < q; j++) {
-					for (i = 0; i < p; i++) {
-						sum = sum + first[i][j] * second[i][k];
-					}
-					multiply[i][j] = sum;
+					r = second[k][j]
+						for (i = 0; i < p; i++) {
+							multiply[i][j] = first[i][k] * r;
+						}
 					sum = 0;
 				}
 			}
@@ -81,11 +81,10 @@ int main(){
 			x0 = __rdtsc();
 			for (k = 0; k < m; k++) {
 				for (i = 0; i < q; i++) {
-					for (j = 0; j < p; j++) {
-						sum = sum + first[i][k] * second[k][j];
-					}
-					multiply[i][j] = sum;
-					sum = 0;
+					r = first[i][k]
+						for (j = 0; j < p; j++) {
+							multiply[i][j] += r * second[k][j];
+						}
 				}
 			}
 			x = __rdtsc();
