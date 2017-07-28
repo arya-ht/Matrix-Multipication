@@ -3,7 +3,7 @@
 #include <inttypes.h>
 #include <stdint.h>
 #include <intrin.h>
-
+//created by Arya HajiTaheri
 #define SIZE 1000
 #define RAND_MAX 10000
 #pragma warning(disable:4996)
@@ -11,7 +11,7 @@
 uint64_t rdtsc() {
 	return __rdtsc();
 }
-int main() {
+int main(void) {
 	FILE *fi = fopen("i.csv", "w"), *fc = fopen("cycle.csv", "w"), *fu = fopen("u.csv", "w");
 	int m = 0, n = 0, p = 0, q = 0, i, j, k, r, sum = 0, input = 0, count = 1;
 	char ch;
@@ -65,10 +65,10 @@ int main() {
 			x0 = __rdtsc();
 			for (k = 0; k < m; k++) {
 				for (j = 0; j < q; j++) {
-					r = second[k][j]
-						for (i = 0; i < p; i++) {
-							multiply[i][j] = first[i][k] * r;
-						}
+					r = second[k][j];
+					for (i = 0; i < p; i++) {
+						multiply[i][j] = first[i][k] * r;
+					}
 					sum = 0;
 				}
 			}
@@ -81,10 +81,10 @@ int main() {
 			x0 = __rdtsc();
 			for (k = 0; k < m; k++) {
 				for (i = 0; i < q; i++) {
-					r = first[i][k]
-						for (j = 0; j < p; j++) {
-							multiply[i][j] += r * second[k][j];
-						}
+					r = first[i][k];
+					for (j = 0; j < p; j++) {
+						multiply[i][j] += r * second[k][j];
+					}
 				}
 			}
 			x = __rdtsc();
