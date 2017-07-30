@@ -7,7 +7,7 @@
 #define SIZE 1000
 #define RAND_MAX 10000
 #pragma warning(disable:4996)
-
+/*This function measures amount of CPU cycles since last restarts*/
 uint64_t rdtsc() {
 	return __rdtsc();
 }
@@ -16,7 +16,7 @@ int main(void) {
 	int m = 0, n = 0, p = 0, q = 0, i, j, k, r, sum = 0, input = 0, count = 1;
 	char ch;
 	static int first[SIZE][SIZE], second[SIZE][SIZE], multiply[SIZE][SIZE];
-	printf("Randomize matrix?(y/n)\n");
+	printf("Randomize matrix?(y/n)\n"); //contents of the array shouldn't matter 
 	scanf(" %c", &ch);
 	if (ch == 'y') {
 		for (i = 0; i < SIZE; i++) {
@@ -57,7 +57,7 @@ int main(void) {
 				}
 			}
 			x = __rdtsc();
-			diff = x - x0;
+			diff = x - x0; // cycles between beginning of the loop and the end of the loop
 			printf("It took %I64d cycles to finish process #%d.\n", diff, count);
 			fprintf(fu, "%I64d\n", diff);
 			break;
